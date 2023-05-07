@@ -15,11 +15,26 @@ const AddProduct = () => {
   });
 
   const [submit, setSubmmit] = useState(false);
-  const [dataSend, setDataSend] = useState(false)
+  const [dataSend, setDataSend] = useState(false);
+  const [size, setSize] = useState(null);
 
   const handleFileSelect = (event) => {
     const files = event.target.files;
-    if (files.length > 6) {
+
+    const overSizeFile = [...files].filter(file => file.size > 1048576);
+
+    if(overSizeFile.length > 0){
+      event.target.value = null;
+
+      toast.warn("You can only select files that are less than 1Mb",{
+        position: "top-center",
+        autoClose: 3000,
+        theme: "colored",
+        transition: Flip,
+      })
+    }
+
+    else if (files.length > 6) {
       event.target.value = null;
       toast.warn("You can only select less than 6 images",{
         position: "top-center",
