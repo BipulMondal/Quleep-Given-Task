@@ -13,6 +13,10 @@ exports.clouduploads = async (files) => {
   // console.log(files);
   const uploadResults = [];
 
+  if(!Array.isArray(files)){
+    files = [files];
+  }
+
   for (const file of files) {
     try {
       const result = await cloudinary.uploader.upload(file.tempFilePath, (err, result) => {
