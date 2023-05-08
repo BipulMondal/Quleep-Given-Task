@@ -16,7 +16,6 @@ const AddProduct = () => {
 
   const [submit, setSubmmit] = useState(false);
   const [dataSend, setDataSend] = useState(false);
-  const [size, setSize] = useState(null);
 
   const handleFileSelect = (event) => {
     const files = event.target.files;

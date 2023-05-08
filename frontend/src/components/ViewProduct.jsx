@@ -27,7 +27,7 @@ const ViewProduct = () => {
               {product.images.length > 0 && product.images[0].url && (
                 <img
                   className="h-[14rem] w-[11rem]"
-                 key={product.images.id}
+                  key={product.images.id}
                   src={product.images[0].url} 
                   alt="product" />
               )}
